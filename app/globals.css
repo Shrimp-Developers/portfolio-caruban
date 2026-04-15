@@ -1,10 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0000;
-}
+  /* Brand Colors */
+  --brand-primary: #1D9E75;    /* Hijau Emerald */
+  --brand-dark: #1A1A2E;       /* Navy Gelap */
+  --brand-light: #F1EFE8;      /* Broken White */
 
+  /* Functional Variables */
+  --background: var(--brand-light);
+  --foreground: var(--brand-dark);
+  
+  /* Primary Action (Tombol, Link, dll) */
+  --primary: var(--brand-primary);
+  --primary-foreground: #ffffff;
+
+  /* UI Elements */
+  --card: #ffffff;
+  --card-foreground: var(--brand-dark);
+  
+  --border: #d1cfc7; /* Versi sedikit lebih gelap dari background untuk garis */
+  --input: #e2e0d8;
+  --ring: var(--brand-primary);
+  
+  /* Muted / Secondary */
+  --muted: #e5e3db;
+  --muted-foreground: #5a5a6e;
+}
 body {
   
 }

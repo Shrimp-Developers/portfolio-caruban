@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Cpu, Palette, HeadphonesIcon, Layers } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ServiceSection() {
   const services = [
@@ -9,7 +12,6 @@ export default function ServiceSection() {
       title: "Teknologi Terbaru",
       description:
         "Menggunakan stack teknologi modern untuk memastikan performa sistem yang optimal dan keamanan data yang terjamin.",
-      accent: "#6EE7F7",
       number: "01",
     },
     {
@@ -17,8 +19,7 @@ export default function ServiceSection() {
       icon: <Palette className="w-5 h-5" />,
       title: "Desain Intuitif",
       description:
-        "Riset UI/UX yang mendalam untuk menciptakan pengalaman pengguna yang mulus di berbagai perangkat dan platform.",
-      accent: "#A78BFA",
+        "Riset UI/UX yang mendalam untuk menciptakan pengalaman pengguna yang mulus di berbagai perangkat.",
       number: "02",
     },
     {
@@ -26,8 +27,7 @@ export default function ServiceSection() {
       icon: <HeadphonesIcon className="w-5 h-5" />,
       title: "Penuh Dukungan",
       description:
-        "Layanan pemeliharaan dan dukungan teknis pasca-rilis untuk menjamin stabilitas aplikasi Anda.",
-      accent: "#34D399",
+        "Layanan pemeliharaan dan dukungan teknis pasca-rilis untuk menjamin stabilitas aplikasi Anda secara berkala.",
       number: "03",
     },
     {
@@ -36,71 +36,70 @@ export default function ServiceSection() {
       title: "Efisiensi & Skalabilitas",
       description:
         "Sistem yang dirancang secara modular sehingga mudah dikembangkan seiring pertumbuhan bisnis Anda.",
-      accent: "#FB923C",
       number: "04",
     },
   ];
 
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
-      {/* Header */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center mb-16">
-        <div className="flex justify-center mb-4">
-          <div className="w-10 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-          Mengapa Memilih{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-            Layanan Kami?
-          </span>
-        </h2>
-        <p className="max-w-2xl mx-auto text-base md:text-lg leading-relaxed mt-4">
-          Kami tidak hanya sekadar membangun kode, tetapi menciptakan solusi
-          digital yang dirancang khusus untuk mempercepat pertumbuhan bisnis
-          Anda dan memberikan pengalaman pengguna yang tak terlupakan.
-        </p>
-      </div>
+    <section
+      id="services"
+      className="relative py-20 px-6 overflow-hidden bg-white text-[var(--foreground)]"
+    >
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[var(--primary)] opacity-[0.02] blur-[100px] pointer-events-none"></div>
 
-      {/* Cards Grid */}
-      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="group relative rounded-2xl overflow-hidden border flex flex-col p-5 gap-4"
-          >
-            {/* Card image */}
-            <div className="relative h-44 overflow-hidden rounded-xl">
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            {/* Card body */}
-            <div className="flex flex-col flex-1 gap-3">
-              {/* Icon + Title */}
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${service.accent}20` }}
-                >
-                  {service.icon}
-                </div>
-                <h3 className="text-base font-semibold leading-snug">
-                  {service.title}
-                </h3>
-              </div>
-
-              {/* Description */}
-              <p className="text-sm text-gray-400 leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+      <div className="max-w-5xl mx-auto z-10 relative">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-20">
+          {/* Left Side  */}
+          <div className="md:w-[35%] md:sticky md:top-32 md:h-fit shrink-0 flex flex-col gap-6">
+            <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
+            <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-tight">
+              Mengapa Memilih <br />
+              <span className="text-[var(--primary)] italic">
+                Layanan Kami?
+              </span>
+            </h2>
+            <p className="text-sm md:text-base opacity-65 font-medium leading-relaxed">
+              Kami menciptakan solusi digital yang dirancang khusus untuk
+              mempercepat pertumbuhan bisnis Anda dengan standar kualitas
+              tinggi.
+            </p>
           </div>
-        ))}
+
+          {/* Right Side  */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative rounded-[2rem] overflow-hidden border border-[var(--border)] bg-white p-5 flex flex-col gap-4 hover:border-[var(--primary)] transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-1"
+              >
+                {/* Card image dikecilkan */}
+                <div className="relative h-40 overflow-hidden rounded-2xl">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                {/* Card body */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-[var(--primary)]/10 text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-300">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-sm md:text-base font-black tracking-tight leading-snug">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-xs md:text-sm opacity-65 leading-relaxed font-medium">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

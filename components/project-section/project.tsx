@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -14,9 +17,9 @@ const projects = [
   },
   {
     id: "02",
-    title: "Aplikasi Buwuhan",
+    title: "Sistem Manajemen Inventaris",
     description:
-      "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+      "Kami menghadirkan solusi teknologi yang efisien untuk membantu manajemen data dan keuangan Anda. Dengan antarmuka yang bersih dan performa yang cepat, setiap proyek kami kerjakan dengan standar kualitas tinggi untuk mendukung skalabilitas bisnis.",
     image: "/image-contoh.jpg",
     slug: "https://www.google.com",
     imageLeft: false,
@@ -25,73 +28,105 @@ const projects = [
 
 export default function ProjectSection() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      {/* Header */}
+    <section
+      id="project"
+      className="relative py-20 px-6 overflow-hidden bg-white text-[var(--foreground)]"
+    >
+      {/* Dekorasi Background */}
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-[var(--primary)] opacity-[0.02] blur-[100px] pointer-events-none"></div>
+
+      {/* Header - Font disesuaikan dengan FAQ */}
       <div className="max-w-5xl mx-auto text-center mb-16">
-        {/* Garis dekoratif atas */}
-        <div className="flex justify-center mb-4">
-          <div className="w-10 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-          Portofolio Proyek
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center"
+        >
+          <div className="w-10 h-1.5 rounded-full bg-[var(--primary)] mb-4" />
+          <h2 className="text-3xl md:text-4xl font-black tracking-tighter">
+            Portofolio Proyek
+          </h2>
+        </motion.div>
       </div>
 
       {/* Project List */}
-      <div className="max-w-5xl mx-auto flex flex-col gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col gap-24">
         {projects.map((project) => (
-          <div
+          <motion.div
             key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className={`flex flex-col ${
               project.imageLeft ? "md:flex-row" : "md:flex-row-reverse"
-            } items-center gap-8 md:gap-12`}
+            } items-center justify-center gap-10 md:gap-16`}
           >
-            {/* Image */}
-            <div className="w-full md:w-1/2 shrink-0">
-              <div className="relative w-full h-60 md:h-72 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
+            {/* Image Container */}
+            <div className="w-full md:w-[38%] shrink-0 group">
+              <div className="relative w-full h-60 md:h-[300px] rounded-[2rem] overflow-hidden border border-[var(--border)] bg-zinc-50 shadow-sm transition-all duration-700 group-hover:shadow-2xl group-hover:shadow-[var(--primary)]/10">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
-                  priority
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-[var(--brand-dark)]/0 group-hover:bg-[var(--brand-dark)]/5 transition-colors duration-500" />
               </div>
             </div>
 
-            {/* Content */}
-            <div className="w-full md:w-1/2 flex flex-col gap-4">
-              <h3 className="text-xl md:text-2xl font-bold">{project.title}</h3>
-              <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            {/* Content - Ukuran teks disesuaikan FAQ */}
+            <div className="w-full md:w-[45%] flex flex-col gap-4 text-left">
+              <div className="flex items-center gap-3">
+                <span className="text-[var(--primary)] font-black text-lg md:text-xl opacity-25">
+                  {project.id}
+                </span>
+                <div className="h-[1px] w-6 bg-[var(--border)]" />
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight text-[var(--brand-dark)]">
+                {project.title}
+              </h3>
+
+              <p className="text-sm md:text-base opacity-65 leading-relaxed font-medium max-w-xl">
                 {project.description}
               </p>
-              <div>
+
+              <div className="pt-2">
                 <Link
                   target="_blank"
                   href={project.slug}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 dark:border-gray-600 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[var(--brand-dark)] text-white text-xs font-bold hover:bg-[var(--primary)] transition-all duration-300 transform hover:scale-105 shadow-lg group uppercase tracking-wider"
                 >
-                  Lihat Detail Proyek
-                  <span className="w-6 h-6 rounded-full bg-gray-900 dark:bg-white flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                    <ArrowRight className="w-3.5 h-3.5 text-white dark:text-gray-900" />
-                  </span>
+                  Detail Proyek
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {/* Footer Button */}
-      <div className="max-w-5xl mx-auto flex justify-end mt-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="max-w-5xl mx-auto flex justify-center mt-20"
+      >
         <Link
-          href="/proyek"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:opacity-90 transition-opacity"
+          href="/project"
+          className="group flex flex-col items-center gap-3"
         >
-          Lihat semua project
-          <ArrowRight className="w-4 h-4" />
+          <div className="w-10 h-10 rounded-full border-2 border-[var(--border)] flex items-center justify-center group-hover:border-[var(--primary)] group-hover:bg-[var(--primary)] transition-all duration-500">
+            <ArrowRight className="w-4 h-4 text-[var(--brand-dark)] group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-500" />
+          </div>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand-dark)] opacity-60">
+            Eksplor Semua Proyek
+          </span>
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 }

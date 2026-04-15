@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -32,82 +33,105 @@ const faqs = [
       "Tentu saja. Kami menyediakan sesi revisi sesuai kesepakatan di awal proyek untuk memastikan hasil akhir sesuai dengan ekspektasi Anda.",
   },
   {
-    question: "Bagaimana cara memulai konsultasi proyek dengan Shrimp Dev?",
+    question:
+      "Bagaimana cara memulai konsultasi proyek dengan Caruban Technology?",
     answer:
       "Anda bisa menghubungi kami melalui halaman kontak atau langsung via WhatsApp. Tim kami akan merespons dalam 1x24 jam untuk mendiskusikan kebutuhan proyek Anda.",
   },
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-        {/* Garis dekoratif */}
-        <div className="flex mb-6">
-          <div className="w-10 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
-        </div>
+    <section className="relative py-20 px-6 overflow-hidden bg-white text-[var(--foreground)]">
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-[var(--primary)] opacity-[0.02] blur-[100px] pointer-events-none"></div>
 
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
-          {/* Left — Judul + Gambar */}
-          <div className="md:w-2/5 shrink-0 flex flex-col gap-6">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              <span className="text-gray-400"></span>FAQ &amp; Informasi
-              <br />
-              Layanan
-            </h2>
+      <div className="max-w-5xl mx-auto z-10 relative">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+          <div className="md:w-[35%] md:sticky md:top-32 md:h-fit shrink-0 flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
+              <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-tight">
+                FAQ & <br />
+                <span className="text-[var(--primary)] italic">
+                  Informasi Layanan
+                </span>
+              </h2>
+              <p className="text-sm md:text-base opacity-65 font-medium leading-relaxed">
+                Temukan jawaban atas pertanyaan umum atau hubungi tim kami untuk
+                konsultasi langsung.
+              </p>
+            </div>
 
-            {/* Image card */}
-            <div className="relative w-full h-52 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative w-full h-56 rounded-[1.5rem] overflow-hidden border border-[var(--border)] bg-zinc-50 shadow-sm"
+            >
               <Image
                 src="/image-contoh.jpg"
-                alt="FAQ Illustration"
+                alt="FAQ Caruban Technology"
                 fill
                 className="object-cover"
                 priority
               />
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right — FAQ Accordion */}
-          <div className="flex-1 flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
+          <div className="flex-1 flex flex-col">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={index} className="py-4">
+                <div
+                  key={index}
+                  className={`border-b border-[var(--border)] transition-all duration-300 ${isOpen ? "py-6" : "py-4"}`}
+                >
                   <button
-                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="w-full flex items-start justify-between gap-4 text-left group"
                   >
                     <span
-                      className={`text-sm md:text-base font-semibold leading-snug transition-colors ${
+                      className={`text-base md:text-lg tracking-tight leading-snug transition-colors duration-300 flex-1 ${
                         isOpen
-                          ? "text-blue-500"
-                          : "text-gray-800 dark:text-gray-100"
+                          ? "text-[var(--primary)]"
+                          : "text-[var(--brand-dark)] group-hover:text-[var(--primary)]"
                       }`}
                     >
                       {faq.question}
                     </span>
-                    <ChevronRight
-                      className={`w-4 h-4 mt-0.5 shrink-0 transition-transform duration-300 ${
+
+                    <div
+                      className={`mt-1 w-7 h-7 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 ${
                         isOpen
-                          ? "rotate-90 text-blue-500"
-                          : "text-gray-400 group-hover:text-gray-600"
+                          ? "bg-[var(--primary)] text-white border-[var(--primary)] rotate-90"
+                          : "bg-zinc-50 border-[var(--border)] text-[var(--brand-dark)] group-hover:border-[var(--primary)]/30 group-hover:bg-[var(--primary)]/5"
                       }`}
-                    />
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </div>
                   </button>
 
-                  {/* Answer */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed pr-6">
-                      {faq.answer}
-                    </p>
-                  </div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.04, 0.62, 0.23, 0.98],
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-sm md:text-base opacity-70 leading-relaxed font-medium pt-4 max-w-2xl">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}

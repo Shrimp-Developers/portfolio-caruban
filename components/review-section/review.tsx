@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
 export default function SectionReview() {
   const reviews = [
@@ -21,54 +22,82 @@ export default function SectionReview() {
       name: "Andi Saputra",
     },
     {
-      text: "Pelayanan cepat dan hasil sesuai ekspektasi, recommended banget!",
-      name: "Andi Saputra",
+      text: "Desainnya bener-bener mencerminkan identitas brand kami. Caruban Tech emang juara!",
+      name: "Siti Aminah",
     },
     {
-      text: "Pelayanan cepat dan hasil sesuai ekspektasi, recommended banget!",
-      name: "Andi Saputra",
+      text: "Kodingannya rapi, performa web kencang banget. Puas banget sama hasilnya.",
+      name: "Budi Santoso",
     },
   ];
 
   return (
-    <section className="py-20 px-6 bg-gray-100 text-black overflow-hidden">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">
-          Apa kata mereka ?
-        </h2>
+    <section
+      id="testimonial"
+      className="py-20 px-6 bg-white text-[var(--foreground)] overflow-hidden"
+    >
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
+          </div>
+          {/* Font Heading diperkecil sesuai FAQ */}
+          <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-tight">
+            Apa Kata Mereka?
+          </h2>
+        </div>
 
         {/* DRAG CONTAINER */}
-        <motion.div
-          className="flex gap-6 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={{ left: -300, right: 0 }}
-        >
-          {reviews.map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{
-                rotate: i % 2 === 0 ? -6 : 6,
-                scale: 1.05,
-              }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="min-w-[280px] bg-white border border-gray-300 rounded-2xl p-6 shadow-md"
-            >
-              {/* Text */}
-              <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-                “{item.text}”
-              </p>
+        <div className="relative cursor-grab active:cursor-grabbing px-4">
+          <motion.div
+            className="flex gap-6"
+            drag="x"
+            dragConstraints={{ left: -1200, right: 0 }}
+          >
+            {reviews.map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{
+                  y: -5,
+                  borderColor: "var(--primary)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="min-w-[280px] md:min-w-[320px] bg-white border border-[var(--border)] rounded-[2rem] p-7 shadow-sm hover:shadow-xl transition-all duration-300 relative"
+              >
+                {/* Quote Icon Background diperkecil */}
+                <Quote className="absolute top-5 right-6 w-8 h-8 text-[var(--primary)] opacity-10" />
 
-              {/* Avatar */}
-              <div className="flex justify-center mb-3">
-                <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-              </div>
+                {/* Text diperkecil sesuai FAQ (text-sm md:text-base) */}
+                <p className="text-sm md:text-base italic opacity-70 mb-8 leading-relaxed relative z-10 font-medium">
+                  “{item.text}”
+                </p>
 
-              {/* Name */}
-              <p className="text-sm font-semibold text-center">{item.name}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="flex items-center gap-3 border-t border-[var(--border)] pt-5">
+                  {/* Avatar diperkecil */}
+                  <div className="w-10 h-10 bg-[var(--primary)]/10 text-[var(--primary)] rounded-full flex items-center justify-center text-sm font-black">
+                    {item.name.charAt(0).toUpperCase()}
+                  </div>
+
+                  {/* Name diperkecil */}
+                  <div className="flex flex-col text-left">
+                    <p className="text-xs md:text-sm font-black uppercase tracking-wider text-[var(--brand-dark)]">
+                      {item.name}
+                    </p>
+                    <p className="text-[10px] opacity-50 font-bold uppercase tracking-widest">
+                      Happy Client
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Hint untuk user */}
+        <p className="text-center mt-10 text-[10px] font-black uppercase tracking-[0.2em] opacity-30 animate-pulse">
+          ← Geser untuk melihat →
+        </p>
       </div>
     </section>
   );

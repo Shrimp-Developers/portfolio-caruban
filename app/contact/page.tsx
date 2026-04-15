@@ -1,4 +1,4 @@
-import AllProjects from "@/components/all-projects/allprojects";
+import Contact from "@/components/contact/contact";
 
 export const metadata = {
   title: "Semua Proyek | Caruban Technology",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <main>
-      <AllProjects />
+      <Contact />
     </main>
   );
 }
