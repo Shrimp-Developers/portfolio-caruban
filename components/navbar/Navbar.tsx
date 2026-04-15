@@ -11,7 +11,7 @@ export default function Navbar() {
   const [active, setActive] = useState("Beranda");
 
   return (
-    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div className="fixed top-3 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
