@@ -1,9 +1,11 @@
 "use client";
 
 import StackIcon from "tech-stack-icons";
+import { useTranslations } from "next-intl";
 import { techStacks } from "@/constants";
 
 export default function TechStackSection() {
+  const t = useTranslations("TechStack");
   return (
     <section className="relative py-16 sm:py-20 overflow-hidden bg-white">
       {/* Header */}
@@ -12,12 +14,13 @@ export default function TechStackSection() {
           <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
         </div>
         <h2 className="text-2xl md:text-3xl font-black tracking-tighter text-[var(--brand-dark)]">
-          Teknologi{" "}
-          <span className="text-[var(--primary)] italic">Andalan Kami</span>
+          {t("TitlePrefix")}{" "}
+          <span className="text-[var(--primary)] italic">
+            {t("TitleHighlight")}
+          </span>
         </h2>
         <p className="mt-4 text-xs md:text-sm opacity-60 font-medium max-w-lg mx-auto leading-relaxed">
-          Kami menggunakan ekosistem teknologi modern untuk memastikan performa
-          dan keamanan aplikasi Anda.
+          {t("Description")}
         </p>
       </div>
 

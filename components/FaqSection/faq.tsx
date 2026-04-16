@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { faqs } from "@/constants";
 
 export default function FaqSection() {
+  const t = useTranslations("FAQ");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -19,14 +21,13 @@ export default function FaqSection() {
             <div className="flex flex-col gap-4">
               <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
               <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight">
-                FAQ & <br />
+                {t("Title")} <br />
                 <span className="text-[var(--primary)] italic">
-                  Informasi Layanan
+                  {t("Subtitle")}
                 </span>
               </h2>
               <p className="text-sm md:text-base opacity-65 font-medium leading-relaxed">
-                Temukan jawaban atas pertanyaan umum atau hubungi tim kami untuk
-                konsultasi langsung.
+                {t("Description")}
               </p>
             </div>
 
@@ -66,7 +67,7 @@ export default function FaqSection() {
                           : "text-[var(--brand-dark)] group-hover:text-[var(--primary)]"
                       }`}
                     >
-                      {faq.question}
+                      {t(faq.question)}
                     </span>
 
                     <div
@@ -93,7 +94,7 @@ export default function FaqSection() {
                         className="overflow-hidden"
                       >
                         <p className="text-xs md:text-sm opacity-70 leading-relaxed font-medium pt-4 max-w-2xl">
-                          {faq.answer}
+                          {t(faq.answer)}
                         </p>
                       </motion.div>
                     )}

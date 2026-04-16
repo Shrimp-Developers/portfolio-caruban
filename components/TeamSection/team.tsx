@@ -3,9 +3,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { teams } from "@/constants";
 
 export default function TeamSection() {
+  const t = useTranslations("Team");
   return (
     <section className="py-16 sm:py-20 px-6 bg-[var(--background)] text-[var(--foreground)]">
       <div className="max-w-5xl mx-auto text-center">
@@ -14,7 +16,7 @@ export default function TeamSection() {
           <div className="w-12 h-2 rounded-full bg-[var(--primary)]" />
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-10 sm:mb-16 tracking-tight">
-          Informasi Tim Developer
+          {t("Title")}
         </h2>
 
         {/* Grid */}
@@ -40,7 +42,7 @@ export default function TeamSection() {
               {/* Info Card */}
               <div className="bg-[var(--brand-dark)] text-white px-5 py-4 rounded-tr-[80px] rounded-bl-[80px] -mt-8 relative z-20 w-full shadow-lg transform transition-all duration-300 group-hover:-translate-y-3 group-hover:shadow-2xl">
                 <p className="text-[10px] uppercase tracking-widest text-[var(--primary)] font-bold">
-                  {item.role}
+                  {t(item.role)}
                 </p>
                 <p className="text-sm font-black mt-1 tracking-tight uppercase">
                   {item.name}

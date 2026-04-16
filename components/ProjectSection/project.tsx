@@ -4,9 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { featuredProjects } from "@/constants";
 
 export default function ProjectSection() {
+  const t = useTranslations("Project");
+
   return (
     <section
       id="project"
@@ -25,7 +28,7 @@ export default function ProjectSection() {
         >
           <div className="w-10 h-1.5 rounded-full bg-[var(--primary)] mb-4" />
           <h2 className="text-2xl md:text-3xl font-black tracking-tighter">
-            Portofolio Proyek
+            {t("Title")}
           </h2>
         </motion.div>
       </div>
@@ -48,7 +51,7 @@ export default function ProjectSection() {
               <div className="relative w-full h-60 md:h-[300px] rounded-[2rem] overflow-hidden border border-[var(--border)] bg-zinc-50 shadow-sm transition-all duration-700 group-hover:shadow-2xl group-hover:shadow-[var(--primary)]/10">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={t(project.title)}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -66,21 +69,20 @@ export default function ProjectSection() {
               </div>
 
               <h3 className="text-lg md:text-xl font-black tracking-tight leading-tight text-[var(--brand-dark)]">
-                {project.title}
+                {t(project.title)}
               </h3>
 
               <p className="text-sm md:text-base opacity-65 leading-relaxed font-medium max-w-xl">
-                {project.description}
+                {t(project.description)}
               </p>
 
               <div className="pt-2">
                 <Link
                   target="_blank"
                   href={project.slug}
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[var(--brand-dark)] text-white text-xs font-bold hover:bg-[var(--primary)] transition-all duration-300 transform hover:scale-105 shadow-lg group uppercase tracking-wider"
+                  className="inline-flex items-center px-6 py-3 rounded-xl bg-[var(--brand-dark)] text-white text-xs font-bold hover:bg-[var(--primary)] transition-all duration-300 transform hover:scale-105 shadow-lg group uppercase tracking-wider"
                 >
-                  Detail Proyek
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {t("Details")}
                 </Link>
               </div>
             </div>
@@ -103,7 +105,7 @@ export default function ProjectSection() {
             <ArrowRight className="w-4 h-4 text-[var(--brand-dark)] group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-500" />
           </div>
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand-dark)] opacity-60">
-            Eksplor Semua Proyek
+            {t("Explore")}
           </span>
         </Link>
       </motion.div>

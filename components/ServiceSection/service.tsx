@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { services } from "@/constants";
 
 export default function ServiceSection() {
+  const t = useTranslations("Service");
+
   return (
     <section
       id="services"
@@ -18,15 +21,13 @@ export default function ServiceSection() {
           <div className="md:w-[35%] md:sticky md:top-24 md:h-fit shrink-0 flex flex-col gap-5">
             <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
             <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight">
-              Mengapa Memilih <br />
+              {t("Title")} <br />
               <span className="text-[var(--primary)] italic">
-                Layanan Kami?
+                {t("Subtitle")}
               </span>
             </h2>
             <p className="text-sm md:text-base opacity-65 font-medium leading-relaxed">
-              Kami menciptakan solusi digital yang dirancang khusus untuk
-              mempercepat pertumbuhan bisnis Anda dengan standar kualitas
-              tinggi.
+              {t("Description")}
             </p>
           </div>
 
@@ -41,7 +42,7 @@ export default function ServiceSection() {
                 <div className="relative h-36 overflow-hidden rounded-2xl">
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={t(service.title)}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
@@ -53,12 +54,12 @@ export default function ServiceSection() {
                       {service.icon}
                     </div>
                     <h3 className="text-sm md:text-base font-black tracking-tight leading-snug">
-                      {service.title}
+                      {t(service.title)}
                     </h3>
                   </div>
 
                   <p className="text-xs md:text-sm opacity-65 leading-relaxed font-medium">
-                    {service.description}
+                    {t(service.description)}
                   </p>
                 </div>
               </div>
