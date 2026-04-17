@@ -1,9 +1,9 @@
 import AllProjects from "@/components/AllProjectSection/allprojects";
 
 export const metadata = {
-  title: "Semua Proyek | Caruban Technology",
+  title: "Portofolio Web & Aplikasi | Caruban Technology",
   description:
-    "Daftar portofolio lengkap pengembangan web dan aplikasi oleh Caruban Technology.",
+    "Lihat portofolio proyek website dan aplikasi yang telah dikembangkan oleh Caruban Technology.",
 };
 
 export default function AllProjectsPage() {

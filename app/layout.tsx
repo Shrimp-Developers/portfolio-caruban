@@ -13,9 +13,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Caruban Technology",
+  title: "Jasa Pembuatan Web & Aplikasi | Caruban Technology",
   description:
-    "Caruban Technology adalah perusahaan teknologi yang berfokus pada pengembangan solusi inovatif untuk berbagai industri. Kami menyediakan layanan konsultasi, pengembangan perangkat lunak, dan solusi teknologi yang disesuaikan dengan kebutuhan bisnis Anda.",
+    "Caruban Technology menyediakan jasa pembuatan website dan aplikasi profesional. Solusi digital untuk bisnis dengan desain modern, performa tinggi, dan dukungan multi-bahasa.",
 };
 
 export default async function RootLayout({
