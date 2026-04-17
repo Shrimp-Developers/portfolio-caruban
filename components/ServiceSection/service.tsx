@@ -10,13 +10,13 @@ export default function ServiceSection() {
   return (
     <section
       id="services"
-      className="relative py-16 sm:py-20 px-6 sm:px-8 overflow-hidden bg-[var(--main-background)]"
+      className="relative py-20 sm:py-24 px-6 overflow-hidden bg-[var(--main-background)]"
     >
       <div className="max-w-5xl mx-auto z-10 relative">
         <div className="grid gap-8">
           <div className="w-full flex flex-col gap-5 items-center text-center">
             <div className="w-15 h-1 rounded-full bg-[var(--color-muted)] mx-auto" />
-            <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
               {t("Title")} <br />
               <span className="italic bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
                 {t("Subtitle")}
@@ -45,15 +45,15 @@ export default function ServiceSection() {
                 {/* Card body */}
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-start gap-3">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-gradient-to-r from-[#1B9D77]/20 to-[#F9CD19]/20 text-sm font-bold text-[var(--color-primary)]">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-gradient-to-r from-[#1B9D77]/20 to-[#F9CD19]/20 text-sm sm:text-base font-bold text-[var(--color-primary)]">
                       {service.number}
                     </div>
-                    <h3 className="text-sm font-black tracking-tight leading-snug bg-gradient-to-r from-[#1B9D77] to-[#F5F6FA] bg-clip-text text-transparent">
+                    <h3 className="text-sm sm:text-base font-bold tracking-tight leading-snug bg-gradient-to-r from-[#1B9D77] to-[#F5F6FA] bg-clip-text text-transparent">
                       {t(service.title)}
                     </h3>
                   </div>
 
-                  <p className="text-xs leading-relaxed text-[var(--color-primary)]">
+                  <p className="text-xs sm:text-sm leading-relaxed text-[var(--color-primary)]">
                     {t(service.description)}
                   </p>
                 </div>

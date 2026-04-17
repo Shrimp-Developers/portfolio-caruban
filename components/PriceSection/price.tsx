@@ -14,14 +14,14 @@ export default function PriceSection() {
   return (
     <section
       id="pricing"
-      className="py-16 sm:py-20 px-6 bg-[var(--main-background)]"
+      className="py-20 sm:py-24 px-6 bg-[var(--main-background)]"
     >
       <div className="max-w-5xl mx-auto text-center">
         <div className="flex justify-center mb-4">
           <div className="w-15 h-1 rounded-full bg-[var(--muted)]" />
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight mb-2 bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tighter leading-tight mb-2 bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
           {t("Title")}
         </h2>
         <p className="text-[var(--color-primary)] mb-4 max-w-lg mx-auto text-xs md:text-sm">

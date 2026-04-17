@@ -4,32 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { allProjects } from "@/constants";
 
 export default function AllProjects() {
   const t = useTranslations("AllProjects");
 
   return (
-    <section className="py-16 sm:py-20 px-6 bg-white min-h-screen">
+    <section className="py-20 sm:py-24 px-6 bg-[var(--main-background)]">
       <div className="max-w-5xl mx-auto">
         {/* Header  */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
           <div className="flex flex-col gap-3 text-left">
-            <div className="w-10 h-1.5 rounded-full bg-[var(--primary)]" />
-            <h1 className="text-2xl md:text-3xl font-black tracking-tighter text-[var(--brand-dark)]">
+            <div className="w-15 h-1 rounded-full bg-[var(--color-muted)]" />
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
               {t("TitlePrefix")} <br />
-              <span className="text-[var(--primary)] italic">
+              <span className="italic bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
                 {t("TitleHighlight")}
               </span>
             </h1>
-            <p className="text-sm md:text-base opacity-60 font-medium max-w-md leading-relaxed">
+            <p className="text-xs md:text-sm max-w-md leading-relaxed text-[var(--color-primary)]">
               {t("Description")}
             </p>
           </div>
 
           <div className="hidden md:flex">
-            <span className="px-3 py-2 bg-zinc-50 border border-[var(--border)] rounded-full text-[10px] font-black uppercase tracking-widest text-[var(--brand-dark)]">
+            <span className="px-3 py-2 bg-[var(--primary-accent)] border border-[var(--color-primary)] rounded-full text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
               {t("TotalProjects", { count: allProjects.length })}
             </span>
           </div>
@@ -43,7 +43,7 @@ export default function AllProjects() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group flex flex-col bg-white border border-[var(--border)] rounded-[2.5rem] overflow-hidden hover:border-[var(--primary)] transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/5"
+              className="group flex flex-col border border-[var(--color-primary)] rounded-2xl overflow-hidden hover:border-[var(--color-secondary)] transition-all duration-500 hover:shadow-2xl"
             >
               {/* Image Preview */}
               <div className="relative h-52 w-full overflow-hidden">
@@ -56,7 +56,7 @@ export default function AllProjects() {
                 <div className="absolute inset-0 bg-[var(--brand-dark)]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 backdrop-blur-[2px]">
                   <Link
                     href={project.link}
-                    className="p-3 bg-white rounded-xl text-[var(--brand-dark)] hover:bg-[var(--primary)] hover:text-white transition-all shadow-xl"
+                    className="p-3 bg-[var(--color-primary)] rounded-xl hover:bg-[var(--primary-accent)] hover:text-[var(--color-primary)] transition-all shadow-xl"
                   >
                     <ExternalLink size={18} />
                   </Link>
@@ -64,14 +64,14 @@ export default function AllProjects() {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col gap-3">
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[var(--primary)]">
+              <div className="p-6 flex flex-col gap-2">
+                <span className="text-sm font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">
                   {t(project.category)}
                 </span>
-                <h3 className="text-lg md:text-xl font-black tracking-tight text-[var(--brand-dark)] leading-tight">
+                <h3 className="text-sm font-black tracking-tight text-[var(--primary-accent)] leading-tight">
                   {t(project.title)}
                 </h3>
-                <p className="text-xs md:text-sm opacity-65 font-medium leading-relaxed">
+                <p className="text-xs md:text-sm leading-relaxed text-[var(--color-primary)]">
                   {t(project.desc)}
                 </p>
               </div>

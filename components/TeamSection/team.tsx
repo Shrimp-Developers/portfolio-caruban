@@ -9,13 +9,13 @@ import { teams } from "@/constants";
 export default function TeamSection() {
   const t = useTranslations("Team");
   return (
-    <section className="py-16 sm:py-20 px-6 bg-[var(--main-background)]">
+    <section className="py-20 sm:py-24 px-6 bg-[var(--main-background)]">
       <div className="max-w-5xl mx-auto text-center">
         {/* Title */}
         <div className="flex justify-center mb-4">
           <div className="w-15 h-1 rounded-full bg-[var(--color-muted)]" />
         </div>
-        <h2 className="text-2xl md:text-3xl font-black mb-10 sm:mb-16 tracking-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 sm:mb-16 tracking-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
           {t("Title")}
         </h2>
 
@@ -41,10 +41,10 @@ export default function TeamSection() {
 
               {/* Info Card */}
               <div className="flex flex-col gap-1 bg-[var(--primary-accent)] border border-[var(--color-primary)] px-4 py-3 sm:px-6 sm:py-4 rounded-tr-[2rem] rounded-bl-[2rem] -mt-6 relative z-20 w-full shadow-lg transition-all duration-300 group-hover:-translate-y-3 group-hover:shadow-2xl">
-                <p className="text-left text-[8px] font-bold sm:text-[10px] uppercase tracking-widest text-[var(--color-primary)]">
+                <p className="text-left text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
                   {t(item.role)}
                 </p>
-                <p className="text-xs font-black tracking-tight uppercase text-[var(--color-primary)]">
+                <p className="text-xs sm:text-sm font-bold tracking-tight uppercase text-[var(--color-primary)]">
                   {item.name}
                 </p>
               </div>

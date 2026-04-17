@@ -12,13 +12,13 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-16 sm:py-20 px-6 overflow-hidden bg-[var(--main-background)]">
+    <section className="relative py-20 sm:py-24 px-6 overflow-hidden bg-[var(--main-background)]">
       <div className="max-w-5xl mx-auto z-10 relative">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10">
           <div className="md:w-[35%] md:sticky md:top-24 md:h-fit shrink-0 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <div className="w-15 h-1 rounded-full bg-[var(--muted)]" />
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
                 {t("Title")} <br />
                 <span className="bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent italic">
                   {t("Subtitle")}

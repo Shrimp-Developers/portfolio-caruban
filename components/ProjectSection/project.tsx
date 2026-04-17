@@ -13,7 +13,7 @@ export default function ProjectSection() {
   return (
     <section
       id="project"
-      className="relative py-16 sm:py-20 px-6 overflow-hidden bg-[var(--main-background)]"
+      className="relative py-20 sm:py-24 px-6 overflow-hidden bg-[var(--main-background)]"
     >
       {/* Header  */}
       <div className="max-w-5xl mx-auto text-center mb-10 sm:mb-12">
@@ -24,7 +24,7 @@ export default function ProjectSection() {
           className="flex flex-col items-center"
         >
           <div className="w-15 h-1 rounded-full bg-[var(--color-muted)] mb-4" />
-          <h2 className="text-2xl md:text-3xl font-black tracking-tighter bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tighter bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
             {t("Title")}
           </h2>
         </motion.div>
@@ -44,7 +44,7 @@ export default function ProjectSection() {
             } items-center justify-center gap-8 md:gap-12`}
           >
             {/* Image Container */}
-            <div className="flex-1 group">
+            <div className="w-full flex-1 group">
               <div className="relative w-full h-60 md:h-[300px] rounded-[2rem] overflow-hidden border border-[var(--border)] bg-zinc-50 shadow-sm transition-all duration-700 group-hover:shadow-2xl group-hover:shadow-[var(--primary)]/10">
                 <Image
                   src={project.image}
@@ -59,13 +59,13 @@ export default function ProjectSection() {
             {/* Content */}
             <div className="flex-1 flex flex-col gap-4 text-left">
               <div className="flex items-center gap-3">
-                <span className="text-[var(--color-primary)] font-black text-base md:text-lg">
+                <span className="text-[var(--color-primary)] font-bold text-base md:text-lg">
                   {project.id}
                 </span>
                 <div className="h-[1px] w-6 bg-[var(--color-primary)]" />
               </div>
 
-              <h3 className="text-lg md:text-xl font-black tracking-tight leading-tight text-[var(--primary-accent)]">
+              <h3 className="text-lg md:text-xl font-bold tracking-tight leading-tight text-[var(--primary-accent)]">
                 {t(project.title)}
               </h3>
 

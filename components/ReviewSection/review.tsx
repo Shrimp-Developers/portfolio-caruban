@@ -23,7 +23,7 @@ export default function SectionReview() {
   return (
     <section
       id="testimonial"
-      className="py-16 sm:py-20 px-6 bg-[var(--main-background)] overflow-hidden"
+      className="py-20 sm:py-24 px-6 bg-[var(--main-background)] overflow-hidden"
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -31,7 +31,7 @@ export default function SectionReview() {
           <div className="flex justify-center mb-3">
             <div className="w-15 h-1 rounded-full bg-[var(--color-muted)]" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tighter leading-tight bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
             {t("Title")}
           </h2>
         </div>

@@ -7,7 +7,7 @@ import { techStacks } from "@/constants";
 export default function TechStackSection() {
   const t = useTranslations("TechStack");
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden bg-[var(--main-background)]">
+    <section className="relative py-20 sm:py-24 px-6 overflow-hidden bg-[var(--main-background)]">
       {/* Header */}
       <div className="max-w-5xl mx-auto px-6 text-center mb-8">
         <div className="flex justify-center mb-4">
