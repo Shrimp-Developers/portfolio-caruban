@@ -22,8 +22,7 @@
     }
   },
   "Service": {
-    "Title": "Why Choose",
-    "Subtitle": "Our Services?",
+    "Title": "Why Choose Our Services?",
     "Description": "We build digital solutions tailored to accelerate your business growth with high quality standards.",
     "TechnologyLatest": "Latest Technology",
     "TechnologyLatestDescription": "Using modern tech stacks to ensure optimal system performance and data security.",
@@ -73,7 +72,7 @@
       "BasicWebProfile": {
         "Title": "Basic Web Profile",
         "Description": "A simple static page to showcase your professional profile.",
-        "Feature1": "Single-page landing page",
+        "Feature1": "Single page landing page",
         "Feature2": "Basic social media setup",
         "Feature3": "Standard template",
         "Button": "Join UMKM Program!"

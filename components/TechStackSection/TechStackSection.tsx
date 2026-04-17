@@ -13,7 +13,7 @@ export default function TechStackSection() {
         <div className="flex justify-center mb-4">
           <div className="w-15 h-1 rounded-full bg-[var(--muted)]" />
         </div>
-        <h2 className="text-2xl md:text-3xl font-black tracking-tighter bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tighter bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
           {t("TitlePrefix")}{" "}
           <span className="italic bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] bg-clip-text text-transparent">
             {t("TitleHighlight")}

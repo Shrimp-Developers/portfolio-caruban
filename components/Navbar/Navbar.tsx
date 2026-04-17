@@ -120,7 +120,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => handleNavClick("Kontak")}
-              className="hidden lg:inline-flex bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest py-2 px-3 rounded-lg transition-all shadow-md active:scale-95 whitespace-nowrap cursor-pointer"
+              className="hidden lg:inline-flex bg-gradient-to-r from-[#1B9D77] to-[#F9CD19] text-[var(--color-primary)] text-[10px] font-bold uppercase tracking-widest p-3 rounded-full transition-all shadow-md active:scale-95 whitespace-nowrap cursor-pointer"
             >
               {t("Button")}
             </Link>

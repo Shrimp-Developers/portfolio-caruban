@@ -17,7 +17,7 @@ export default function Footer() {
   const tNav = useTranslations("Navbar");
 
   return (
-    <footer className="bg-[var(--primary-accent)] border-t border-[var(--color-tertiary)] pt-20 pb-10 px-6">
+    <footer className="bg-[var(--primary-accent)] pt-20 pb-10 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-16">
           {/* Brand Identity */}
@@ -38,9 +38,7 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-sm leading-relaxed">
-              {t("BrandDescription")}
-            </p>
+            <p className="text-sm leading-relaxed">{t("BrandDescription")}</p>
             <div className="flex gap-4">
               {footerSocials.map((social, i) => (
                 <Link
@@ -104,7 +102,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--color-muted)]">
+        <div className="pt-8 border-t border-[var(--color-tertiary)]">
           <p className="text-[10px] text-center font-bold uppercase tracking-widest">
             {t("Copyright")}
           </p>
