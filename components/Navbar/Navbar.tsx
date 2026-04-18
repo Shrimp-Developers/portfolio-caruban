@@ -58,11 +58,11 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col leading-none text-[var(--primary)]">
+            <div className="flex flex-col leading-none text-[var(--primary-accent)]">
               <span className="text-xs font-black tracking-tighter">
                 Caruban
               </span>
-              <span className="text-[9px] font-bold tracking-[0.2em]">
+              <span className="text-[10px] font-bold tracking-[0.2em]">
                 TECHNOLOGY
               </span>
             </div>
@@ -75,7 +75,7 @@ export default function Navbar() {
                 <Link
                   href={item.id}
                   onClick={() => handleNavClick(item.key)}
-                  className={`relative py-2 transition-colors duration-300 hover:text-[var(--primary)] ${
+                  className={`relative py-2 transition-colors duration-300 hover:text-[var(--primary-accent)] ${
                     active === item.key
                       ? "text-[var(--color-muted)]"
                       : "text-[var(--color-muted)]"
@@ -86,7 +86,7 @@ export default function Navbar() {
                   {active === item.key && (
                     <motion.div
                       layoutId="underline"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--primary)] rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--secondary-accent)] rounded-full"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -105,7 +105,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-[var(--border)] bg-white/90 text-[var(--brand-dark)] shadow-sm transition-all hover:bg-white lg:hidden cursor-pointer"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-[var(--color-primary)] bg-[var(--primary-accent)] text-[var(--color-primary)] shadow-sm transition-all lg:hidden cursor-pointer"
             >
               {menuOpen ? (
                 <X className="h-5 w-5" />
@@ -114,7 +114,7 @@ export default function Navbar() {
               )}
             </button>
 
-            <div className="hidden sm:block">
+            <div className="hidden md:block">
               <LanguageToggle />
             </div>
             <Link
@@ -126,15 +126,16 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* Nav Links - Mobile */}
           <AnimatePresence>
             {menuOpen && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="absolute inset-x-0 top-full mt-3 rounded-3xl border border-white/20 bg-white/95 p-5 shadow-2xl backdrop-blur-xl lg:hidden"
+                className="absolute inset-x-0 top-full mt-3 rounded-3xl border border-[var(--primary-accent)] bg-[var(--color-secondary)] p-5 shadow-2xl backdrop-blur-xl lg:hidden"
               >
-                <ul className="flex flex-col gap-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-dark)]">
+                <ul className="flex flex-col gap-3 text-sm font-bold uppercase tracking-wider text-[var(--color-tertiary)]">
                   {navLinks.map((item) => (
                     <li key={item.key}>
                       <Link
@@ -142,8 +143,8 @@ export default function Navbar() {
                         onClick={() => handleNavClick(item.key)}
                         className={`block rounded-2xl px-4 py-3 transition-colors duration-200 ${
                           active === item.key
-                            ? "bg-[var(--color-primary)] text-white"
-                            : "hover:bg-[var(--brand-dark)]/5"
+                            ? "bg-[var(--primary-accent)] text-[var(--color-primary)]"
+                            : "hover:bg-[var(--primary-accent)] hover:text-[var(--color-primary)]"
                         }`}
                       >
                         {t(item.key)}
@@ -156,7 +157,7 @@ export default function Navbar() {
                   <Link
                     href="/contact"
                     onClick={() => handleNavClick("Kontak")}
-                    className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#1B9D77] to-[#F9CD19]  py-2 px-4 text-center text-xs font-black uppercase tracking-widest transition-all"
+                    className="inline-flex items-center justify-center rounded-2xl text-[var(--color-primary)] bg-gradient-to-r from-[#1B9D77] to-[#F9CD19]  py-3 px-4 text-center text-xs font-black uppercase tracking-widest transition-all"
                   >
                     {t("Button")}
                   </Link>

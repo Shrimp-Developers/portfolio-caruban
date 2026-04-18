@@ -1,34 +1,14 @@
 @import "tailwindcss";
 
 :root {
-
   --main-background: #050811;
-  --primary-accent: #1CA078;
-  --secondary-accent: #F9CD19;
-  --color-primary: #FFFFFF;
-  --color-secondary: #D9D9D9;
+  --primary-accent: #1ca078;
+  --secondary-accent: #f9cd19;
+  --color-primary: #ffffff;
+  --color-secondary: #d9d9d9;
   --color-tertiary: #000000;
-  --color-muted: #E8E9EE;
+  --color-muted: #e8e9ee;
   --color-muted-2: #555555;
-
-  --brand-primary: #1d9e75;
-  --brand-dark: #1a1a2e;
-  --brand-light: #f1efe8;
-  --background: var(--brand-light);
-  --foreground: var(--brand-dark);
-
-  --primary: var(--brand-primary);
-  --primary-foreground: #ffffff;
-
-  --card: #ffffff;
-  --card-foreground: var(--brand-dark);
-
-  --border: #d1cfc7;
-  --input: #e2e0d8;
-  --ring: var(--brand-primary);
-
-  --muted: #e5e3db;
-  --muted-foreground: #5a5a6e;
 
   --font-sans:
     var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont,

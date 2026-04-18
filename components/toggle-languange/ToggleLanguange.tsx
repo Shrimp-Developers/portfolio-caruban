@@ -2,7 +2,7 @@
 
 import { Globe } from "lucide-react";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,7 +14,6 @@ const languages = [
 export default function LanguageToggle() {
   const locale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -46,8 +45,8 @@ export default function LanguageToggle() {
         onClick={() => setOpen(!open)}
         className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer ${
           open
-            ? "bg-[var(--primary)] text-white shadow-lg shadow-[var(--primary)]/20"
-            : "text-[var(--brand-dark)] hover:bg-white/50 backdrop-blur-sm border border-transparent hover:border-[var(--border)]"
+            ? "bg-[var(--primary-accent)] text-[var(--color-primary)] shadow-lg shadow-[var(--primary-accent)]/20"
+            : "bg-[var(--primary-accent)] text-[var(--color-primary)] backdrop-blur-sm"
         }`}
       >
         <Globe
@@ -65,16 +64,16 @@ export default function LanguageToggle() {
             animate={{ opacity: 1, y: 5, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute right-0 mt-2 w-44 rounded-2xl border border-[var(--border)] bg-white/90 backdrop-blur-xl shadow-2xl overflow-hidden p-1.5 z-[60]"
+            className="absolute right-0 mt-2 w-44 rounded-2xl border border-[var(--primary-accent)] bg-[var(--color-primary)] backdrop-blur-xl shadow-2xl overflow-hidden p-1.5 z-[60]"
           >
             {languages.map((lang) => (
               <button
                 key={lang.locale}
                 onClick={() => handleSwitch(lang.locale)}
-                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs transition-all duration-200 group cursor-pointer ${
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs transition-all duration-200 group cursor-pointer ${
                   locale === lang.locale
-                    ? "bg-[var(--primary)]/10 text-[var(--primary)] font-bold"
-                    : "text-[var(--brand-dark)] hover:bg-[var(--primary)] hover:text-white"
+                    ? "bg-[var(--primary-accent)] text-[var(--color-primary)]"
+                    : "text-[var(--brand-dark)] hover:bg-[var(--primary)]"
                 }`}
               >
                 <div className="flex items-center gap-3">

@@ -24,14 +24,21 @@ export default function TechStackSection() {
         </p>
       </div>
 
-      {/* Marquee Row */}
-      <div className="relative flex items-center group">
-        {/* Fade Effects */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-[var(--main-background)] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-[var(--main-background)] to-transparent pointer-events-none" />
-
-        <div className="flex gap-3 animate-marquee py-3">
-          {/* Loop data dua kali untuk efek infinite */}
+      {/* Marquee Container */}
+      <div className="relative flex items-center group overflow-hidden">
+        {/* Fade Effects Kiri dan kanan */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 z-10 bg-gradient-to-r from-[var(--main-background)] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 z-10 bg-gradient-to-l from-[var(--main-background)] to-transparent pointer-events-none" />
+        {/* Efek Shadow di tengah
+        <div
+          className="absolute inset-y-0 inset-x-1/4 z-10 pointer-events-none "
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 100% at 50% 50%, rgba(249, 205, 25, 0.25) 0%, transparent 100%)",
+          }}
+        /> */}
+        <div className="flex gap-3 animate-marquee py-12">
+          {/* Loop data dua kali */}
           {[...techStacks, ...techStacks].map((tech, index) => (
             <div
               key={index}
@@ -59,6 +66,7 @@ export default function TechStackSection() {
           display: flex;
           width: fit-content;
           animation: marquee 40s linear infinite;
+          will-change: transform;
         }
         .group:hover .animate-marquee {
           animation-play-state: paused;
