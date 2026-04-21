@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { useChatbotContext } from "../AiChatbotContext";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
+  const { setIsOpen } = useChatbotContext();
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -111,35 +112,35 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Floating WhatsApp */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{
-          scale: 1,
-          opacity: 1,
-          y: [0, -8, 0],
-        }}
-        transition={{
-          scale: { delay: 1, type: "spring" },
-          y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-        }}
-        className="fixed bottom-8 right-4 z-50"
-      >
-        <Link
-          href="https://wa.me/62882001771113"
-          target="_blank"
-          className="relative block group cursor-pointer"
+        {/* Floating WhatsApp */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{
+            scale: 1,
+            opacity: 1,
+            y: [0, -8, 0],
+          }}
+          transition={{
+            scale: { delay: 1, type: "spring" },
+            y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          }}
+          className="fixed bottom-8 right-0 z-50 p-4"
         >
-          <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></span>
-          <Image
-            src="/icon-catie-ai.png"
-            alt="WhatsApp"
-            width={100}
-            height={100}
-            className="relative drop-shadow-2xl shadow-[var(--primary-accent)] group-hover:scale-110 transition-transform duration-300"
-          />
-        </Link>
-      </motion.div>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative block group cursor-pointer appearance-none bg-transparent border-none p-0"
+          >
+            <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20 group-hover:opacity-40"></span>
+            <Image
+              src="/icon-catie-ai.png"
+              alt="Tanya AI"
+              width={100}
+              height={100}
+              className="relative drop-shadow-2xl shadow-primary transition-transform group-hover:scale-110"
+            />
+          </button>
+        </motion.div>
+      </div>
     </section>
   );
 }
