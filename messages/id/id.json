@@ -13,13 +13,8 @@
     "Title": "Solusi Pengembangan Web dan Aplikasi Terintegrasi untuk Bisnis Anda",
     "Description": "Kami membantu transformasi digital bisnis Anda melalui pengembangan perangkat lunak yang skalabel, desain yang intuitif, dan teknologi terkini",
     "Button": "Konsultasi Gratis",
-    "Tags": {
-      "WebDesign": "Desain Web",
-      "Branding": "Branding",
-      "Marketing": "Marketing",
-      "SEO": "SEO",
-      "Consulting": "Konsultasi"
-    }
+    "Badge": "Berinovasi dari Caruban",
+    "TrustNudge": "Butuh solusi? Respon cepat · Konsultasi gratis"
   },
   "About": {
     "Title": "Tentang Kami",
@@ -200,5 +195,13 @@
     "UIDesign": "UI/UX Design",
     "ITConsulting": "IT Consulting",
     "Copyright": "© 2026 Caruban Technology. Seluruh Hak Cipta Dilindungi Undang-Undang."
+  },
+  "AIChatbot": {
+    "Bagde": "Tanya AI",
+    "Title": "Caruban AI",
+    "Description": "Asisten Virtual Caruban Technology",
+    "id": "initial",
+    "role": "assistant",
+    "content": "Halo Kak! Saya Caruban AI, asisten virtual Caruban Technology. Ada yang bisa saya bantu terkait layanan pengembangan web, aplikasi, atau konsultasi IT?"
   }
 }
