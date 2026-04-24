@@ -13,13 +13,8 @@
     "Title": "Integrated Web and Application Development Solutions for Your Business",
     "Description": "We help transform your business digitally through scalable software development, intuitive design, and cutting edge technology",
     "Button": "Free Consultation",
-    "Tags": {
-      "WebDesign": "Web design",
-      "Branding": "Branding",
-      "Marketing": "Marketing",
-      "SEO": "SEO",
-      "Consulting": "Consulting"
-    }
+    "Badge": "Innovating from Caruban",
+    "TrustNudge": "Need a solution? Fast response · Free consultation"
   },
   "About": {
     "Title": "About Us",
@@ -200,5 +195,10 @@
     "UIDesign": "UI/UX Design",
     "ITConsulting": "IT Consulting",
     "Copyright": "© 2026 Caruban Technology. All rights reserved."
+  },
+  "AIChatbot": {
+    "Bagde": "Chat with AI",
+    "Title": "Caruban AI",
+    "Description": "Caruban Technology Virtual Assistant"
   }
 }

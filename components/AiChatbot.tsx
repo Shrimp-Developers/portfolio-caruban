@@ -5,6 +5,7 @@ import { SendIcon, Bot, X } from "lucide-react";
 import { SUGGESTIONS } from "@/constants/ai-prompt";
 import { cn } from "@/lib/utils";
 import { useChatbotContext } from "./AiChatbotContext";
+import { useTranslations } from "next-intl";
 
 const AiAssistant = () => {
   const { messages, input, setInput, isLoading, sendMessage, setIsOpen } =
@@ -36,6 +37,8 @@ const AiAssistant = () => {
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
+  const t = useTranslations("AiChatbot");
+
   return (
     <div className="flex flex-col h-full w-full bg-transparent overflow-hidden">
       {/* Header */}
@@ -46,10 +49,10 @@ const AiAssistant = () => {
           </div>
           <div className="tracking-tight overflow-hidden">
             <h3 className="font-bold text-base md:text-lg leading-tight truncate">
-              Caruban AI
+              {t("Title")}
             </h3>
             <p className="text-[10px] md:text-xs truncate">
-              Asisten Virtual Caruban Technology
+              {t("Description")}
             </p>
           </div>
           <button

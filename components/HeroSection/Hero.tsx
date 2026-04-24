@@ -6,10 +6,11 @@ import { useTranslations } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useChatbotContext } from "../AiChatbotContext";
-import { useState } from "react";
+import { use, useState } from "react";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
+  const T = useTranslations("AiChatbot");
   const { setIsOpen } = useChatbotContext();
   const [showNotif, setShowNotif] = useState(true);
 
@@ -50,11 +51,11 @@ export default function HeroSection() {
           animate="visible"
           className="flex flex-col items-start z-10 gap-6"
         >
-          {/* Badge / eyebrow */}
+          {/* Badge */}
           <motion.div variants={itemVariants}>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--button-text-color)] bg-[var(--primary-accent)] text-[var(--button-text-color)] text-[10px] font-semibold uppercase tracking-widest">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--button-text-color)] animate-pulse" />
-              Digital Agency
+              {t("Badge")}
             </span>
           </motion.div>
 
@@ -82,7 +83,7 @@ export default function HeroSection() {
 
             {/* Trust nudge */}
             <p className="text-[10px] text-[var(--color-primary)] opacity-50 flex items-center gap-1">
-              <span>✓</span> Respon cepat · Konsultasi gratis
+              {t("TrustNudge")}
             </p>
           </motion.div>
         </motion.div>
@@ -115,7 +116,7 @@ export default function HeroSection() {
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
             className="bg-primary text-white text-xs px-3 py-1.5 rounded-full shadow-lg backdrop-blur-md border border-white/10"
           >
-            💬 Tanya AI
+            💬 {T("Bagde")}
           </motion.div>
         )}
 
@@ -136,7 +137,7 @@ export default function HeroSection() {
           {/* Main Icon */}
           <Image
             src="/icon-caruban-ai.png"
-            alt="Tanya AI"
+            alt="AI Chatbot Icon"
             width={80}
             height={80}
             className="relative rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-110 group-active:scale-95"
